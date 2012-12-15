@@ -49,9 +49,9 @@ button {
     border-radius: 5px;
 }
 
-.stop, .on .start {
+.pause, .on .start {
     display: none;
 }
-.on .stop {
+.on .pause {
     display: inline-block;
 }

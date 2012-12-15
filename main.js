@@ -30,13 +30,13 @@
 
     var action = {
         reset: function () {
-            action.stop()
+            action.pause()
             stage.classList.remove('timeout')
             timeout = false
             time = [].concat(base)
             display()
         }
-      , stop: function () {
+      , pause: function () {
             stage.classList.remove('on')
             clearTimeout(tick)
         }
@@ -57,7 +57,7 @@
         if (!time[0] && !time[1]) {
             stage.classList.add('timeout')
             timeout = true
-            action.stop()
+            action.pause()
         }
         display()
     }
