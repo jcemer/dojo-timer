@@ -7,9 +7,9 @@
             return [5, 0]
         do {
             time = window.prompt('Input the time in format m:s')
-            matched = time && time.match(/(\d+):(\d)+/)
+            matched = time && time.match(/(\d+):(\d+)/)
         } while (!matched)
-        return matched.splice(1, 2)
+        return [parseInt(matched[1], 10), parseInt(matched[2], 10)]
     }
 
     function pad(value) {
@@ -26,8 +26,7 @@
     var clock = document.querySelector('.clock')
       , stage = document.body
       , base = getInput()
-      , time = []
-      , tick, timeout
+      , time, tick, timeout
 
     var action = {
         reset: function () {
