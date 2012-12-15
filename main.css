@@ -1,0 +1,57 @@
+body {
+    -webkit-transition: background .5s;
+    -o-transition: background .5s;
+    -moz-transition: background .5s;
+    transition: background .5s;
+    background: #333;
+    font-family: arial;
+}
+body.on {
+    background: #002345;
+}
+body.timeout {
+    background: darkred;
+}
+
+.clock {
+    width: 80vw;
+    margin-left: -40vw;
+    height: 80vh;
+    margin-top: -40vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    text-align: center;
+}
+.show .clock {
+    display: block;
+}
+
+.display {
+    font-size: 30vw;
+    line-height: 60vh;
+    letter-spacing: -.05em;
+    color: rgba(255, 255, 255, .6);
+}
+
+button {
+    background: rgba(255, 255, 255, .1);
+    color: rgba(255, 255, 255, .8);
+    display: inline-block;
+    border: none;
+    width: 14vw;
+    margin: 0 1vw;
+    font-size: 3vw;
+    line-height: 8vw;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.stop, .on .start {
+    display: none;
+}
+.on .stop {
+    display: inline-block;
+}
