@@ -3,7 +3,7 @@ Dojo timer
 
 http://jcemer.com/dojo-timer
 
-A simple fullscreen timer to manage coding dojos.
+A simple fullscreen count down timer to coding dojos.
 
 Support
 ----------------
