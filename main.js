@@ -2,14 +2,14 @@
     'use strict'
 
     function getInput() {
-        var time, matched
-        if (window.confirm('Five minutes?'))
-            return [5, 0]
-        do {
-            time = window.prompt('Input the time in format m:s')
-            matched = time && time.match(/(\d+):(\d+)/)
-        } while (!matched)
-        return [parseInt(matched[1], 10), parseInt(matched[2], 10)]
+        var time = [5, 0]
+          , count = 0
+        if (!window.confirm('Five minutes?')) while (!count) {
+            window.prompt('Enter time').replace(/(\d+)/g, function (val) {
+                time[count++] = parseInt(val, 10)
+            })
+        }
+        return time
     }
 
     function pad(value) {
