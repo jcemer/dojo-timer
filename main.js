@@ -25,6 +25,7 @@
 
     var clock = document.querySelector('.clock')
       , stage = document.body
+      , beep = clock.querySelector('audio')
       , base = getInput()
       , time, tick, timeout
 
@@ -33,11 +34,13 @@
             action.pause()
             stage.classList.remove('timeout')
             timeout = false
+            beep.currentTime && (beep.currentTime = 0)
             time = [].concat(base)
             display()
         }
-      , pause: function () {
+      , pause: function (audio) {
             stage.classList.remove('on')
+            !audio && beep.pause()
             clearTimeout(tick)
         }
       , start: function () {
@@ -54,10 +57,15 @@
             time[1] = 59
             time[0]--
         }
-        if (!time[0] && !time[1]) {
-            stage.classList.add('timeout')
-            timeout = true
-            action.pause()
+        if (!time[0]) {
+            if (parseInt(beep.duration, 10) >= time[1]) {
+                beep.play()
+            }
+            if (!time[1]) {
+                stage.classList.add('timeout')
+                timeout = true
+                action.pause(true)
+            }
         }
         display()
     }
